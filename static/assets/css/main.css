@@ -86,6 +86,16 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+.regiter-button {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 12px 40px;
+  color: #ffffff;
+  border: none;
+  background-color: #5897fb;
+  border-radius: 50px;
+  float: right;
+}
 
 img {
   max-width: 100%;
@@ -2227,6 +2237,7 @@ label {
   display: inline-block;
   font-size: 9px;
 }
+
 
 /*****************************
 *********  SOCIAL NETWORKS  **********

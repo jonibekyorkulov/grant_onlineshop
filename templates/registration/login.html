@@ -1,4 +1,4 @@
-﻿{% extends 'base.html' %}
+{% extends 'base.html' %}
 {% block content %}
     <main class="main">
         <div class="page-header breadcrumb-wrap">
@@ -23,10 +23,10 @@
                                         </div>
                                         <form method="post">{% csrf_token %}
                                             <div class="form-group">
-                                                <input type="text" required="" name="phone" placeholder="Your Phone">
+                                                {{ form.username }}
                                             </div>
                                             <div class="form-group">
-                                                <input required="" type="password" name="password" placeholder="Password">
+                                                {{ form.password }}
                                             </div>
                                             <div class="login_footer form-group">
                                                 <div class="chek-form">
@@ -39,7 +39,6 @@
                                             </div>
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-fill-out btn-block hover-up" name="login">Log in</button>
-                                                <a class="regiter-button"  href="{% url 'accounts:register' %}" name="login">Register</a>
                                             </div>
                                         </form>
                                     </div>

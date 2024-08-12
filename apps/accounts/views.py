@@ -1,13 +1,10 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, View
-from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
 from django.contrib import messages
+from apps.accounts.form import UserForm
 
-
-class TestView(TemplateView):
-    template_name = 'test.html'
 
 class LoginView(View):
     def get(self, request):
@@ -30,3 +27,23 @@ class LogoutView(View):
         logout(request)
         messages.warning(request, "Logout Successfuly")
         return redirect('products:home')
+
+
+class RegisterView(View):
+    def get(self, request):
+        form = UserForm()
+        return render(request, 'register.html', {'form': form})
+    
+    def post(self, request):
+        form = UserForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password1'])
+            user.save()
+            # user = authenticate(phone = form.cleaned_data['phone'], password = form.cleaned_data['password1'])
+            # if user is not None:
+            #     login(request, user)
+            #     messages.success(request, "Login Successfuly")
+            #     return redirect('products:home')
+            return redirect('accounts:login')
+        return render(request, 'register.html', {'form': form})
