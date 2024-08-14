@@ -55,9 +55,9 @@
                                     </ul>
                                 </li>
                                 {% if request.user.is_authenticated %}
-                                    <li><a href="{% url 'accounts:logout' %}">LogOut</li>
+                                    <li><a href="{% url 'logout' %}">LogOut</li>
                                 {% else %}
-                                    <li><a href="{% url 'accounts:login' %}">Log In</li>
+                                    <li><a href="{% url 'login' %}">Log In</li>
                                 {% endif %}
                             </ul>
                         </div>

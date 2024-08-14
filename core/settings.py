@@ -152,3 +152,7 @@ MESSAGE_TAGS = {
         messages.WARNING: 'alert-warning',
         messages.ERROR: 'alert-danger',
 }
+
+# LOGOUT_ON_PASSWORD_CHANGE = False
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
